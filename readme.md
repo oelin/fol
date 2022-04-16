@@ -75,7 +75,7 @@ const functionsMap = {
     return mod10(x + 1)
   },
   
-  // Predeccessor
+  // Predecessor
   
   P(x) {
     return mod10(x - 1)
