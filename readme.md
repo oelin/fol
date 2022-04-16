@@ -15,8 +15,9 @@ replicate the set-theoretic formalisation of first-order logic.
 | [Variable Binding](https://en.wikipedia.org/wiki/First-order_logic#Free_and_bound_variables)     | `FirstOrderAssignment(?variableMap)`                                                                                              |
 | [Formula Evaluation](https://en.wikipedia.org/wiki/First-order_logic#Free_and_bound_variables)   | `FirstOrderEvaluator(firstOrderStructure, ?firstOrderAssignment)`                                                                 |
 
-
 ## Usage
+
+### Creating a First-Order System
 
 In this example we create a first-order logic for modulo-10 arithmetic.
 
@@ -66,19 +67,19 @@ const functionsMap = {
   
   G(x, y) {
     return mod10(x - y)
-  }
+  },
   
   // Successor relation.
   
   S(x) {
     return mod10(x + 1)
-  }
+  },
   
   // Predeccessor
   
   P(x) {
     return mod10(x - 1)
-  }
+  },
   
   // Additive inverse.
   
@@ -90,7 +91,7 @@ const functionsMap = {
 
 // Mapping between predicates and their interpretations.
 
-cosnt predicatesMap = {
+const predicatesMap = {
 
   // Equality in the domain.
   
@@ -116,3 +117,42 @@ const system = new FirstOrderLogic(
   predicatesMap
 )
 ```
+
+### Evaluating Formulas
+
+For all `x`, there is a `y` such that `y` is the successor of `x`. This should be true.
+
+```js
+system.evaluate('AxEyM(y,S(x))') // true
+```
+
+There is no smallest `x`. This should be false.
+
+```js
+system.evaluate('-ExAy(-M(x,y)>L(x,y))') // false
+```
+
+The successor of the predecessor of `x` is equal to `x`. This should be true.
+
+```js
+system.evaluate('AxM(S(P(x)),x)') // true
+```
+
+The successor of the largest element of the domain is the smallest element of the domain. This should be true.
+
+```js
+system.evaluate('ExEy((Az(-M(x,y)>L(x,z))^Az(-M(y,z)>L(z,y)))>M(S(y),x))') // true
+```
+
+There is an element which when summed with its additive inverse, results in 1. This should be false.
+
+```js
+system.evaluate('ExM(1,F(x,I(x)))') // false
+```
+
+Any element sumed with its additive inverse results in 0. This should be true.
+
+```js
+system.evaluate('AxM(0,F(x,I(x)))') // true
+```
+
