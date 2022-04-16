@@ -4,7 +4,7 @@ This library implements first-order logic in JavaScript, with an emphasis on sem
 replicate the set-theoretic formalisation of first-order logic.
 
 
-### Supported Concepts 
+## Supported Concepts 
 
 | Concept                                                                                          | Implementation                                                                                                                    |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
