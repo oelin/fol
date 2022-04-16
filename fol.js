@@ -314,6 +314,7 @@ class FirstOrderEvaluator {
 		this.firstOrderAssignment = firstOrderAssignment ?? new FirstOrderAssignment()
 	}
 
+
 	evaluate(node) {
 
 		if (node.type === 'Constant') return this.evaluateConstant(node)
@@ -415,21 +416,29 @@ class FirstOrderEvaluator {
 }
 
 
-function FOL(domain, variableSymbols, constants, functions, predicates) {
+class FirstOrderLogic {
 
-	const constantSymbols = Object.keys(constants)
-	const functionSymbols = Object.keys(functions)
-	const predicateSymbols = Object.keys(predicates)
+	constructor(domain, variables, constantsMap, functionsMap, predicatesMap) {
 
-	const language = new FirstOrderLanguage(constantSymbols, variableSymbols, functionSymbols, predicateSymbols)
-	const parser = new FirstOrderParser(language)
-	const model = new FirstOrderModel(language, domain, constants, functions, predicates)
-	const evaluator = new FirstOrderEvaluator(model)
+		const constants = Object.keys(constantsMap)
+		const functions = Object.keys(functionsMap)
+		const predicates = Object.keys(predicatesMap)
 
-	return {
-		language,
-		parser,
-		model,
-		evaluator
+		const language = new FirstOrderLanguage(constants, variables, functions, predicates)
+		const model = new FirstOrderModel(language, domain, constantsMap, functionsMap, predicatesMap)
+		const parser = new FirstOrderParser(language)
+
+		this.language = language
+		this.model = model
+		this.parser = parser
+	}
+
+
+	evaluate(string, assignment) {
+
+		const evaluator = new FirstOrderEvaluator(this.model, assignment)
+		const node = this.parser.parse(string)
+
+		return evaluator.evaluate(node)
 	}
 }
