@@ -165,4 +165,4 @@ system.evaluate('ExM(x,I(x))') // true
 ## Efficiency
 
 In this implementation, quantifiers are evaluated by iterating over the domain. Hence, nesting quantifiers leads to nested iteration and therefore a significant 
-increase in evaluation time. If you have three layers of quantification for example, the evaluation time cubic on the size of the domain.
+increase in evaluation time. If you have three layers of quantification for example, the evaluation time is at worst cubic in the size of the domain.
