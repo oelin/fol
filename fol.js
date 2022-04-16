@@ -17,6 +17,7 @@ class FirstOrderNode {
 		Object.assign(this, { type }, attributes)
 	}
 
+
 	toString() {
 		// TODO
 	}
@@ -297,6 +298,7 @@ class FirstOrderModel {
 		this.domain = new Set(domain)
 		this.interpretation = {...constantsMap, ...functionsMap, ...predicatesMap}
 	}
+
 
 	interpret(symbol) {
 		return this.interpretation[symbol]
