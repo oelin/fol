@@ -172,3 +172,4 @@ increase in evaluation time. If you have three layers of quantification for exam
 
 * Add support for multicharacter predicate names.
 * Add equality as a primitive binary connective.
+* There's currently working implementations of propositional and modal logic in `future.js`, however they need to be refactored.
