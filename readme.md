@@ -150,9 +150,14 @@ There is an element which when summed with its additive inverse, results in 1. T
 system.evaluate('ExM(1,F(x,I(x)))') // false
 ```
 
-Any element sumed with its additive inverse results in 0. This should be true.
+Any element summed with its additive inverse results in 0. This should be true.
 
 ```js
 system.evaluate('AxM(0,F(x,I(x)))') // true
 ```
 
+There is an element which is its own additive inverse. This should be true, namely on `x=0` and `x=5`.
+
+```js
+system.evaluate('ExM(x,I(x))') // true
+```
