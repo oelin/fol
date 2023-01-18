@@ -1,10 +1,11 @@
 # First-order Logic
 
-This library implements first-order logic in JavaScript, with an emphasis on semantic accuracy. It attempts to closely 
-replicate the set-theoretic formalisation of first-order logic.
+This library provides a semantically accurate implementation of [first-order logic (FOL)](https://en.wikipedia.org/wiki/First-order_logic) in JavaScript. It aims to closely replicate the standard set-theoretic formulation of FOL.
 
 
-## Supported Concepts 
+## Concepts 
+
+This library aims to implement all *primary* concepts found within the standard definition of FOL.
 
 | Concept                                                                                          | Implementation                                                                                                                    |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -17,7 +18,7 @@ replicate the set-theoretic formalisation of first-order logic.
 
 ## Usage
 
-### Creating a First-Order System
+### Creating First-Order Systems
 
 In this example we create a first-order logic for modulo-10 arithmetic.
 
