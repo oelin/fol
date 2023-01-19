@@ -1,4 +1,4 @@
-# First-order Logic
+# FOL
 
 This library provides a semantically accurate implementation of [first-order logic (FOL)](https://en.wikipedia.org/wiki/First-order_logic) in JavaScript. It aims to closely replicate the standard set-theoretic formulation of FOL.
 
