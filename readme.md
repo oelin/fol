@@ -18,9 +18,9 @@ This library aims to implement all *primary* concepts found within the standard 
 
 ## Usage
 
-### Creating First-Order Systems
+### Creating First-Order Models
 
-In this example we create a first-order logic for modulo-10 arithmetic.
+In this example we create a first-order model for modulo-10 arithmetic.
 
 ```js
 // The domain of discourse.
